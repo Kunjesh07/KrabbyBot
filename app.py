@@ -106,7 +106,6 @@ def bot():
         video_url = re.search('sd_src:"(.+?)"', html.text).group(1)
         reqq = r.get('http://tinyurl.com/api-create.php?url='+video_url)
         msg.body('*Video works on Convert...*\n\nLINK : ')
-       # msg.media('https://user-images.githubusercontent.com/58212770/78709692-47566900-793e-11ea-9b48-69c72f9bec1e.png')
         responded = True
         
     if '/TTS' in incoming_msg:
