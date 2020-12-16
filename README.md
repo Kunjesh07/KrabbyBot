@@ -46,7 +46,7 @@ start <show menu>
 
 ## 🖥️ Installation
 ```
-$ git clone https://github.com/kiunjesh/KrabbyBot
+$ git clone https://github.com/Kunjesh07/KrabbyBot
 $ cd Whatsapp-Helper-Bot
 $ pip3 install -r requirements.txt
 $ python3 app.py
@@ -61,7 +61,7 @@ After Run app.py The Output Look Like This :
  * Running on http://localhost:5000/ (Press CTRL+C to quit)
  * Restarting with stat
  * Debugger is active!
- * Debugger PIN: 246-949-121
+ * Debugger PIN: 279-991-972
  ```
  To Make Sure Bot Running you Must Using Ngrok Or Upload To Heroku / Webhook
  
