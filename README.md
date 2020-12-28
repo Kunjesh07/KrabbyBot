@@ -1,23 +1,18 @@
 # KrabbyBot
 WhatsApp bot that can do many things like, searching your query on google and give you a links as more as it can.
 
-# 🤖 Whatsapp-Bot ( LANG ID )
+# 🤖 Whatsapp-Bot 
 (Using Twilio Api)
 
 ## ✨ Features
 - Facebook Video Downloader 
-- Instagram Video Downloader
-- Translator Id > eng 
-- Translator eng > id
-- Translator kor > id
-- Translator id > kor
 - Google Search Engine 
-- Get Instagram Profile Info
-- Youtube Search
 - Generate Youtube Direct mp3/mp4 link
-- Corona Info India/Global
+- Corona Info India/USA/Russia/Global
 - Schedule
-- 
+- Weather
+- Quote
+- Text-to-Speech
 
 ## 🗒️ Requirements
 * [Python 3.6](https://www.python.org/downloads/) 
@@ -29,31 +24,23 @@ WhatsApp bot that can do many things like, searching your query on google and gi
 ## ⌨️ Usage
 ```
 start <show menu>
-/FB <Your Urk>
-/IG <Your Url>
+Menu <Shows command list>
+/FB <Your Url>
 /YT <Your Url>
-/SY <Your Url>
-/TR-id-eng <Text>
-/TR-eng-id <Text>
-/TR-kor-id <Text>
-/TR-id-kor <Text>
 /GL < query >
-/SG <Instagram Username>
- ```
+/Quote <Shows Quote>
+/Weather <Shows Weather>
  
-
-
-
 ## 🖥️ Installation
 ```
-$ git clone https://github.com/Kunjesh07/KrabbyBot
+$ git clone https://github.com/kunjesh07/KrabbyBot
 $ cd Whatsapp-Helper-Bot
 $ pip3 install -r requirements.txt
 $ python3 app.py
 
 After Run app.py The Output Look Like This :
 
- * Serving Flask app "app" (lazy loading)
+ * Serving Flask app "KrabbyBot" (lazy loading)
  * Environment: production
    WARNING: This is a development server. Do not use it in a production deployment.
    Use a production WSGI server instead.
@@ -61,7 +48,7 @@ After Run app.py The Output Look Like This :
  * Running on http://localhost:5000/ (Press CTRL+C to quit)
  * Restarting with stat
  * Debugger is active!
- * Debugger PIN: 279-991-972
+ * Debugger PIN: 246-949-121
  ```
  To Make Sure Bot Running you Must Using Ngrok Or Upload To Heroku / Webhook
  
@@ -69,3 +56,4 @@ After Run app.py The Output Look Like This :
 
  if this will help you in your project then buy me a cup of coffee.
  paypal.me/Kpatel785
+ 
