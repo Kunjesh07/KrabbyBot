@@ -1,1 +1,1 @@
-
+web: python KrabbyBot.py
