@@ -18,3 +18,4 @@ googletrans
 google
 pafy
 youtube-dl
+wikipedia
