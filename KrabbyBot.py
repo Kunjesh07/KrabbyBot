@@ -30,8 +30,6 @@ import requests
 from twilio.twiml.messaging_response import MessagingResponse
 from googletrans import Translator
 import wikipedia
-from newsapi import NewsApiClient
-from news_api import news
 import datetime
 
 
