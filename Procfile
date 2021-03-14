@@ -1,2 +1,1 @@
-web: gunicorn gettingstarted.wsgi
-web: python KrabbyBot.py
+web: gunicorn KrabbyBot:app
