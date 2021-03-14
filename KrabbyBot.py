@@ -32,7 +32,6 @@ from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 import googletrans
 from googletrans import Translator
-from newsapi import NewsApiClient
 
 app = Flask(__name__)
 
