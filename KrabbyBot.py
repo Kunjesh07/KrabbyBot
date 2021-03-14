@@ -1,4 +1,4 @@
-#Copyright (c) 2020 kunjesh07
+    #Copyright (c) 2020 kunjesh07
 
 #Permission is hereby granted, free of charge, to any person obtaining a copy
 #of this software and associated documentation files (the "Software"), to deal
@@ -32,7 +32,7 @@ from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 import googletrans
 from googletrans import Translator
-#from newsapi import NewsApiClient
+from newsapi import NewsApiClient
 
 app = Flask(__name__)
 
@@ -260,6 +260,132 @@ def bot():
         par = incoming_msg[9:]
         translator = Translator()
         result = translator.translate(par, src='ur', dest='en')
+        msg.body(result.text)
+        responded = True
+
+    if '/TR-ur-gu' in incoming_msg:
+        par = incoming_msg[9:]
+        translator = Translator()
+        result = translator.translate(par, src='ur', dest='gu')
+        msg.body(result.text)
+        responded = True
+
+    if '/TR-gu-ur' in incoming_msg:
+        par = incoming_msg[9:]
+        translator = Translator()
+        result = translator.translate(par, src='gu', dest='ur')
+        msg.body(result.text)
+        responded = True
+
+    if '/TR-ur-hi' in incoming_msg:
+        par = incoming_msg[9:]
+        translator = Translator()
+        result = translator.translate(par, src='ur', dest='hi')
+        msg.body(result.text)
+        responded = True
+
+    if '/TR-hi-ur' in incoming_msg:
+        par = incoming_msg[9:]
+        translator = Translator()
+        result = translator.translate(par, src='hi', dest='ur')
+        msg.body(result.text)
+        responded = True
+
+    if '/TR-ur-mr' in incoming_msg:
+        par = incoming_msg[9:]
+        translator = Translator()
+        result = translator.translate(par, src='ur', dest='mr')
+        msg.body(result.text)
+        responded = True
+
+    if '/TR-mr-ur' in incoming_msg:
+        par = incoming_msg[9:]
+        translator = Translator()
+        result = translator.translate(par, src='mr', dest='ur')
+        msg.body(result.text)
+        responded = True
+
+    if '/TR-ur-kn' in incoming_msg:
+        par = incoming_msg[9:]
+        translator = Translator()
+        result = translator.translate(par, src='ur', dest='kn')
+        msg.body(result.text)
+        responded = True
+
+    if '/TR-kn-ur' in incoming_msg:
+        par = incoming_msg[9:]
+        translator = Translator()
+        result = translator.translate(par, src='kn', dest='ur')
+        msg.body(result.text)
+        responded = True
+
+    if '/TR-ur-bn' in incoming_msg:
+        par = incoming_msg[9:]
+        translator = Translator()
+        result = translator.translate(par, src='ur', dest='bn')
+        msg.body(result.text)
+        responded = True
+
+    if '/TR-bn-ur' in incoming_msg:
+        par = incoming_msg[9:]
+        translator = Translator()
+        result = translator.translate(par, src='bn', dest='ur')
+        msg.body(result.text)
+        responded = True
+
+    if '/TR-ur-ta' in incoming_msg:
+        par = incoming_msg[9:]
+        translator = Translator()
+        result = translator.translate(par, src='ur', dest='ta')
+        msg.body(result.text)
+        responded = True
+
+    if '/TR-ta-ur' in incoming_msg:
+        par = incoming_msg[9:]
+        translator = Translator()
+        result = translator.translate(par, src='ta', dest='ur')
+        msg.body(result.text)
+        responded = True
+
+    if '/TR-ur-te' in incoming_msg:
+        par = incoming_msg[9:]
+        translator = Translator()
+        result = translator.translate(par, src='ur', dest='te')
+        msg.body(result.text)
+        responded = True
+
+    if '/TR-te-ur' in incoming_msg:
+        par = incoming_msg[9:]
+        translator = Translator()
+        result = translator.translate(par, src='te', dest='ur')
+        msg.body(result.text)
+        responded = True
+
+    if '/TR-ur-ml' in incoming_msg:
+        par = incoming_msg[9:]
+        translator = Translator()
+        result = translator.translate(par, src='ur', dest='ml')
+        msg.body(result.text)
+        responded = True
+
+    if '/TR-ml-ur' in incoming_msg:
+        par = incoming_msg[9:]
+        translator = Translator()
+        result = translator.translate(par, src='ml', dest='ur')
+        msg.body(result.text)
+        responded = True
+
+    if '/TR-ur-pa' in incoming_msg:
+        par = incoming_msg[9:]
+        translator = Translator()
+        result = translator.translate(par, src='ur', dest='pa')
+        msg.body(result.text)
+        responded = True
+
+    if '/TR-pa-ur' in incoming_msg:
+        par = incoming_msg[9:]
+        translator = Translator()
+        result = translator.translate(par, src='pa', dest='ur')
         msg.body(result.text)
         responded = True
 
