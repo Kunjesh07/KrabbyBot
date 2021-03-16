@@ -1,14 +1,3 @@
-![dashboard](https://user-images.githubusercontent.com/74760068/111300925-a147ce80-8677-11eb-9106-972e75000851.PNG)
-![dev name](https://user-images.githubusercontent.com/74760068/111300933-a3119200-8677-11eb-9dbe-499cbd113179.PNG)
-![english to hindi](https://user-images.githubusercontent.com/74760068/111300934-a3aa2880-8677-11eb-96cc-cd8f19f401b7.PNG)
-![fb video downloader](https://user-images.githubusercontent.com/74760068/111300938-a442bf00-8677-11eb-806c-7b89a24d6670.PNG)
-![Google search](https://user-images.githubusercontent.com/74760068/111300941-a442bf00-8677-11eb-86d9-e9afa009a963.jpg)
-![hindi to english](https://user-images.githubusercontent.com/74760068/111300944-a4db5580-8677-11eb-9da1-5b25a83aeca6.PNG)
-![info-covid](https://user-images.githubusercontent.com/74760068/111300947-a573ec00-8677-11eb-82a0-9dd14b3ead10.jpg)
-<img width="618" alt="quote" src="https://user-images.githubusercontent.com/74760068/111300948-a573ec00-8677-11eb-9e66-6358d132cd9a.PNG">
-<img width="623" alt="Schedule" src="https://user-images.githubusercontent.com/74760068/111300950-a60c8280-8677-11eb-82f4-9068cbc8773d.PNG">
-<img width="624" alt="wikipedia" src="https://user-images.githubusercontent.com/74760068/111300954-a6a51900-8677-11eb-81d5-1e33b8a29c19.PNG">
-<img width="623" alt="YouTube video" src="https://user-images.githubusercontent.com/74760068/111300955-a6a51900-8677-11eb-93fd-3ceaba348b7d.PNG">
 # 🤖 Whatsapp-Bot 
 (Using Twilio Api)
 
@@ -83,5 +72,19 @@ After Run app.py The Output Look Like This :
  
  To Make Sure Bot Running you Must Using Ngrok Or Upload To Heroku / Webhook
  
- * Here's The Tutorial  [Twilio Whatsapp Chatbot](https://www.twilio.com/blog/build-a-whatsapp-chatbot-with-python-flask-and-twilio)
+ * Here's The Tutorial  [Twilio Whatsapp Chatbot](https://www.twilio.com/blog/build-a-whatsapp-chatbot-with-python-flask-and-twilio)*
+
+
+![dashboard](https://user-images.githubusercontent.com/74760068/111300925-a147ce80-8677-11eb-9106-972e75000851.PNG)
+![dev name](https://user-images.githubusercontent.com/74760068/111300933-a3119200-8677-11eb-9dbe-499cbd113179.PNG)
+![english to hindi](https://user-images.githubusercontent.com/74760068/111300934-a3aa2880-8677-11eb-96cc-cd8f19f401b7.PNG)
+![fb video downloader](https://user-images.githubusercontent.com/74760068/111300938-a442bf00-8677-11eb-806c-7b89a24d6670.PNG)
+![Google search](https://user-images.githubusercontent.com/74760068/111300941-a442bf00-8677-11eb-86d9-e9afa009a963.jpg)
+![hindi to english](https://user-images.githubusercontent.com/74760068/111300944-a4db5580-8677-11eb-9da1-5b25a83aeca6.PNG)
+![info-covid](https://user-images.githubusercontent.com/74760068/111300947-a573ec00-8677-11eb-82a0-9dd14b3ead10.jpg)
+<img width="618" alt="quote" src="https://user-images.githubusercontent.com/74760068/111300948-a573ec00-8677-11eb-9e66-6358d132cd9a.PNG">
+<img width="623" alt="Schedule" src="https://user-images.githubusercontent.com/74760068/111300950-a60c8280-8677-11eb-82f4-9068cbc8773d.PNG">
+<img width="624" alt="wikipedia" src="https://user-images.githubusercontent.com/74760068/111300954-a6a51900-8677-11eb-81d5-1e33b8a29c19.PNG">
+<img width="623" alt="YouTube video" src="https://user-images.githubusercontent.com/74760068/111300955-a6a51900-8677-11eb-93fd-3ceaba348b7d.PNG">
+
  
