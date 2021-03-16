@@ -1,4 +1,4 @@
-    #Copyright (c) 2020 kunjesh07
+#Copyright (c) 2020 kunjesh07
 
 #Permission is hereby granted, free of charge, to any person obtaining a copy
 #of this software and associated documentation files (the "Software"), to deal
@@ -25,13 +25,19 @@
 #Version___= 1.1.0
 
 import datetime
-
 import requests
 import wikipedia
 from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 import googletrans
 from googletrans import Translator
+from advice import return_advice
+from Crypto import return_cryptoPrices
+from weather import return_weather
+#from newsapi import NewsApiClient
+#import PyCurrency_Converter 
+#from forex_python.converter import CurrencyRates
+#from currency_converter import CurrencyConverter
 
 app = Flask(__name__)
 
@@ -59,6 +65,7 @@ def bot():
         text = f'🤖 _Hello I Am a Krabby Bot, how Can I Help You?_\n\n*Admin :*\n\n📞 : +917041436016\n📱 : _fb.me/kunjesh.patel.37_ \n\n🚀 *Features*\n\n✅ _Covid-19 info_\n✅ _Youtube Downloader_ \n✅ _Facebook Downloader_ \n✅ _Google Search_ \n✅ _Text To Speech_ \n✅ _wiki Search_\n✅ _weather Information_\n✅ _Quote_\n\n--------------------------------------------------------------------\n\n🎯 *Upcoming features* 🎯\n\n✅ _Stackoverflow query finder_\n✅ _Translator_\n✅ _Voice based query_\n✅ _Torrent link to Google drive link or normal link_\n✅ _Device based location in longitude and latitude_\n✅ _Instagram video Downloader_\n✅ _stocking instagram profile_\n✅ _News_\n\n--------------------------------------------------------------------\n\n_To Display Command Type_ *Menu*\n\n_To help for Command Type_ *Help or help*' 
         msg.body(text)
         responded = True
+
     if 'info-covid' in incoming_msg or 'Info-covid' in incoming_msg:
         import requests as r, json
         req = r.get('https://coronavirus-19-api.herokuapp.com/countries/india')
@@ -75,14 +82,20 @@ def bot():
        
 
     #if "currency" in incoming_msg:
-        
+        #import requests
+        #url = 'https://v6.exchangerate-api.com/v6/280cc2604e6d08069363f10d/latest/USD'
+        #response = requests.get(url)
+        #data = response.json()
+        #text = f'Rates for various currencies :{data["conversion_rates"]}'
+        #msg.body(text)
+        #responded = True
 
     if 'Menu' in incoming_msg or 'menu' in incoming_msg:
         text = f'⌨️ *List Of Command :*  \n\n🔥 *info-covid* (Information of COVID-19) \n\n🔥 *Schedule* _Display Schedule_\n\n🔥 */YT* _<url>_ : Youtube Downloader\n\n🔥 */Quote* : Generate Quote\n\n🔥 */wiki* : Information form wikipedia\n\n🔥 */FL* _<url>_ : Download Big Size Fb Videos\n\n🔥 */GL* _<query>_ : Google Search\n\n🔥 */weather* : weather Information \n\n🔥 */TTS* <Text> : Text To Speech\n\n🔥 *help* : How to use the command'
         msg.body(text)
         responded = True
     
-    if 'GL' in incoming_msg or 'gl' in incoming_msg:
+    if 'GL' in incoming_msg or 'gl' in incoming_msg or 'Gl' in incoming_msg:
         from googlesearch import search
         query = incoming_msg[2:]
         for i in search(query, tld="com", num=10, stop=10, pause=2):
@@ -92,6 +105,7 @@ def bot():
 
     if 'quote' in incoming_msg or 'Quote' in incoming_msg:
         # return a quote
+        import requests
         r = requests.get('https://api.quotable.io/random')
         if r.status_code == 200:
             data = r.json()
@@ -102,24 +116,13 @@ def bot():
         responded = True
 
     if 'weather' in incoming_msg or 'Weather' in incoming_msg:
-        api_key = "8ef61edcf1c576d65d836254e11ea420"
-        base_url = "https://api.openweathermap.org/data/2.5/weather?"
-        city_name= ("Ahmedabad")    
-        complete_url = base_url + "appid=" + api_key + "&q=" + city_name
-        response = requests.get(complete_url)
-        x = response.json()
-        if x["cod"] != "404":
-                y = x["main"]
-                current_temperature = y["temp"]
-                current_humidiy = y["humidity"]
-                z = x["weather"]
-                weather_description = z[0]["description"]
-        text = f'Current weather in Ahmedabad city\n\n================================\nTemperature in kelvin unit :' +str(current_temperature)
-        text2 = f'\n\nHumidity percentage :' +str(current_humidiy)
-        text3 = f'\n\n\n\n*Weather description* :' +str(weather_description)
-        msg.body(text)
-        msg.body(text2)
-        msg.body(text3)
+        data = return_weather(incoming_msg)
+        msg.body(data)
+        responded = True
+
+    if 'advice' in incoming_msg or 'Advice' in incoming_msg:
+        data = return_advice()
+        msg.body(data)
         responded = True
 
     if '/TR-en-gu' in incoming_msg:
@@ -388,8 +391,8 @@ def bot():
         msg.body(result.text)
         responded = True
 
-    if 'wiki' in incoming_msg or 'Wiki' in incoming_msg:
-        query = incoming_msg[15:]
+    if 'wiki' in incoming_msg:
+        query = incoming_msg[4:]
         incoming_msg = incoming_msg.replace("wiki", "")
         result = wikipedia.summary(incoming_msg, sentences=3)
         text = f'\n\n This is according to wikipedia\n\n=============*Result*==============\n\n '+result
@@ -402,7 +405,7 @@ def bot():
         msg.body(text)
         responded = True
 
-    if 'FL' in incoming_msg or 'fl' in incoming_msg:
+    if 'FB' in incoming_msg or 'fb' in incoming_msg or 'Fb' in incoming_msg:
         import requests as r
         import re
         par = incoming_msg[2:]
@@ -419,10 +422,10 @@ def bot():
        # msg.media('https://api.farzain.com/tts.php?id='+par+'&apikey=JsaChFteVJakyjBa0M5syf64z&')
        # responded = True
 
-    if 'YT' in incoming_msg or 'yt' in incoming_msg:
+    if 'YT' in incoming_msg or 'yt' in incoming_msg or 'Yt' in incoming_msg:
         import pafy
         import requests as r
-        par = incoming_msg[3:]
+        par = incoming_msg[2:]
         audio = pafy.new(par)
         gen = audio.getbestaudio(preftype='m4a')
         genn = audio.getbestvideo(preftype='mp4')
