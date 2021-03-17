@@ -31,8 +31,7 @@ from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 import googletrans
 from googletrans import Translator
-from advice import return_advice
-from weather import return_weather
+#from Crypto import return_cryptoPrices
 #from newsapi import NewsApiClient
 #import PyCurrency_Converter 
 #from forex_python.converter import CurrencyRates
@@ -115,11 +114,28 @@ def bot():
         responded = True
 
     if 'weather' in incoming_msg or 'Weather' in incoming_msg:
+        import requests
+        def return_weather(place):
+            words = place.split(" ")
+            r = data = requests.get(
+                'http://api.openweathermap.org/data/2.5/weather?q=' + words[1] + '&APPID=0216d3975efcbccb926efbaf5d521b86')
+            weatherDetails = r.json()
+            temp = weatherDetails["main"]["temp"]
+            weatherDescription = weatherDetails["weather"][0]["description"]
+            msg = "It is {temp} degrees with {desc}".format(temp=temp,desc=weatherDescription)
+            return msg
         data = return_weather(incoming_msg)
         msg.body(data)
         responded = True
 
     if 'advice' in incoming_msg or 'Advice' in incoming_msg:
+        import requests
+        def return_advice():
+            r = requests.get('https://api.adviceslip.com/advice')
+            if r.status_code == 200:
+                data = r.json();
+                advice = data["slip"]["advice"]
+            return advice
         data = return_advice()
         msg.body(data)
         responded = True
