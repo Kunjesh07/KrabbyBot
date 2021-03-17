@@ -32,7 +32,6 @@ from twilio.twiml.messaging_response import MessagingResponse
 import googletrans
 from googletrans import Translator
 from advice import return_advice
-from Crypto import return_cryptoPrices
 from weather import return_weather
 #from newsapi import NewsApiClient
 #import PyCurrency_Converter 
