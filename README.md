@@ -51,10 +51,12 @@ Weather <Shows Weather>
 /TR-ur-en <Translate Urdu to English> 
 ## 🖥️ Installation
 ```
+```
 $ git clone https://github.com/kunjesh07/KrabbyBot
 $ cd KrabbyBot
 $ pip3 install -r requirements.txt
 $ python3 KrabbyBot.py
+```
 
 After Run app.py The Output Look Like This :
 
