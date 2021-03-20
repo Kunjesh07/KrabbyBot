@@ -58,7 +58,7 @@ $ pip3 install -r requirements.txt
 $ python3 KrabbyBot.py
 ```
 
-After Run app.py The Output Look Like This :
+After Run KrabbyBot.py The Output Look Like This :
 
  * Serving Flask app "KrabbyBot" (lazy loading)
  * Environment: production
