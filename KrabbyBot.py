@@ -427,7 +427,7 @@ def bot():
         html = r.get(par)
         video_url = re.search('sd_src:"(.+?)"', html.text).group(1)
         reqq = r.get('http://tinyurl.com/api-create.php?url='+video_url)
-        msg.body('*Video works on Convert...*\n\nLINK : '+reqq.text)
+        msg.body('*Video Converted Successfully Here is link...*\n\nLINK : '+reqq.text)
         responded = True
 
 
