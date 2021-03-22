@@ -36,7 +36,7 @@ from googletrans import Translator
 #from newsapi import NewsApiClient
 #import PyCurrency_Converter 
 #from forex_python.converter import CurrencyRates
-from currency_converter import CurrencyConverter
+#from currency_converter import CurrencyConverter
 
 app = Flask(__name__)
 
