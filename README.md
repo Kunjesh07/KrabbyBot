@@ -11,7 +11,6 @@
 - Schedule
 - Weather
 - Quote
-- Text-to-Speech
 
 ## 🗒️ Requirements
 * [Python 3.6](https://www.python.org/downloads/) 
@@ -49,9 +48,9 @@ Weather <Shows Weather>
 /TR-pa-en <Translate Punjabi to English>
 /TR-en-ur <Translate English to Urdu>
 /TR-ur-en <Translate Urdu to English> 
+```
+```
 ## 🖥️ Installation
-```
-```
 $ git clone https://github.com/kunjesh07/KrabbyBot
 $ cd KrabbyBot
 $ pip3 install -r requirements.txt
@@ -69,9 +68,8 @@ After Run KrabbyBot.py The Output Look Like This :
  * Restarting with stat
  * Debugger is active!
  * Debugger PIN: 246-949-121
- ```
-
  
+ ```
  To Make Sure Bot Running you Must Using Ngrok Or Upload To Heroku / Webhook
  
  * Here's The Tutorial  [Twilio Whatsapp Chatbot](https://www.twilio.com/blog/build-a-whatsapp-chatbot-with-python-flask-and-twilio)*
