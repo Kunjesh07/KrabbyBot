@@ -31,11 +31,12 @@ from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 import googletrans
 from googletrans import Translator
+import simplejson as json
 #from Crypto import return_cryptoPrices
 #from newsapi import NewsApiClient
 #import PyCurrency_Converter 
 #from forex_python.converter import CurrencyRates
-#from currency_converter import CurrencyConverter
+from currency_converter import CurrencyConverter
 
 app = Flask(__name__)
 
@@ -60,7 +61,7 @@ def bot():
 
     
     if 'start' in incoming_msg or 'Start' in incoming_msg:
-        text = f'🤖 _Hello I Am a Krabby Bot, how Can I Help You?_\n\n*Company\'s official number and website :*\n\n📞 : +917041436016\n📱 : _http://krabby.rf.gd/_ \n\n*For any query Contact on below no :*\n\n📞 : +918200398956 (Meet Savaliya )\n\n*For feedback, mail us on below mail id :*\n📧 D20DCE172@charusat.edu.in (Tejas Vaishnav) \n\n🚀 *Features*\n\n✅ _Covid-19 info_\n✅ _Youtube Downloader_ \n✅ _Facebook Downloader_ \n✅ _Google Search_ \n✅ _Text To Speech_ \n✅ _wiki Search_\n✅ _weather Information_\n✅ _Quote_\n\n--------------------------------------------------------------------\n\n🎯 *Upcoming features* 🎯\n\n✅ _Stackoverflow query finder_\n✅ _Translator_\n✅ _Voice based query_\n✅ _Torrent link to Google drive link or normal link_\n✅ _Device based location in longitude and latitude_\n✅ _Instagram video Downloader_\n✅ _stocking instagram profile_\n✅ _News_\n\n--------------------------------------------------------------------\n\n_To Display Command Type_ *Menu*\n\n_To help for Command Type_ *Help or help*' 
+        text = f'🤖 _Hello I Am a Krabby Bot, how Can I Help You?_\n\n*Company\'s official number and website :*\n\n📞 : +917041436016\n📱 : _http://krabby.rf.gd/_ \n\n*For any query Contact on below no :*\n\n📞 : +918200398956 (Meet Savaliya )\n\n*For feedback, mail us on below mail id :*\n📧 D20DCE172@charusat.edu.in (Tejas Vaishnav)\n--------------------------------------------------------------------\n\n🚀 *Features*\n\n✅ _Covid-19 info_\n✅ _Youtube Downloader_ \n✅ _Facebook Downloader_ \n✅ _Google Search_ \n✅ _Advice_ \n✅ _wiki Search_\n✅ _weather Information_\n✅ _Quote_\n✅ _Translator_\n\n--------------------------------------------------------------------\n\n🎯 *Upcoming features* 🎯\n\n✅ _Stackoverflow query finder_\n✅ _Voice based query_\n✅ _Torrent link to Google drive link or normal link_\n✅ _Device based location in longitude and latitude_\n✅ _Instagram video Downloader_\n✅ _stocking instagram profile_\n✅ _News_\n\n--------------------------------------------------------------------\n\n_To Display Command Type_ *Menu*\n\n_To help for Command Type_ *Help or help*' 
         msg.body(text)
         responded = True
 
@@ -79,17 +80,16 @@ def bot():
         responded = True
        
 
-    #if "currency" in incoming_msg:
-        #import requests
-        #url = 'https://v6.exchangerate-api.com/v6/280cc2604e6d08069363f10d/latest/USD'
-        #response = requests.get(url)
-        #data = response.json()
-        #text = f'Rates for various currencies :{data["conversion_rates"]}'
-        #msg.body(text)
-        #responded = True
+    if "/CR-IN-US" in incoming_msg:
+        import requests
+        par = incoming_msg[9:]
+        c = CurrencyConverter(decimal=True)
+        result = c.convert(par, 'INR' , 'USD')
+        msg.body(result)
+        responded = True
 
     if 'Menu' in incoming_msg or 'menu' in incoming_msg:
-        text = f'⌨️ *List Of Command :*  \n\n🔥 *info-covid* (Information of COVID-19) \n\n🔥 *Schedule* _Display Schedule_\n\n🔥 */YT* _<url>_ : Youtube Downloader\n\n🔥 */Quote* : Generate Quote\n\n🔥 */wiki* : Information form wikipedia\n\n🔥 */FL* _<url>_ : Download Big Size Fb Videos\n\n🔥 */GL* _<query>_ : Google Search\n\n🔥 */weather* : weather Information \n\n🔥 */TTS* <Text> : Text To Speech\n\n🔥 *help* : How to use the command'
+        text = f'⌨️ *List Of Command :*  \n\n🔥 *info-covid* (Information of COVID-19) \n\n🔥 *Schedule* _Display Schedule_\n\n🔥 *YT* _<url>_ : Youtube Downloader\n\n🔥 *Quote* : Generate Quote\n\n🔥 *wiki* : Information form wikipedia\n\n🔥 *FL* _<url>_ : Download Big Size Fb Videos\n\n🔥 *GL* _<query>_ : Google Search\n\n🔥 *weather _<city name>_* : weather Information \n\n🔥 *Advice :* Sends life related advice\n\n🔥 *Translator :* Translates one language to other language \n\n🔥 *help* : How to use the command'
         msg.body(text)
         responded = True
     
@@ -140,267 +140,267 @@ def bot():
         msg.body(data)
         responded = True
 
-    if '/TR-en-gu' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-en-gu' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='en', dest='gu')
         msg.body(result.text)
         responded = True
 
-    if '/TR-gu-en' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-gu-en' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='gu', dest='en')
         msg.body(result.text)
         responded = True
 
-    if '/TR-en-mr' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-en-mr' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='en', dest='mr')
         msg.body(result.text)
         responded = True
 
-    if '/TR-mr-en' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-mr-en' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='mr', dest='en')
         msg.body(result.text)
         responded = True
 
-    if '/TR-en-hi' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-en-hi' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='en', dest='hi')
         msg.body(result.text)
         responded = True
 
-    if '/TR-hi-en' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-hi-en' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='hi', dest='en')
         msg.body(result.text)
         responded = True
 
-    if '/TR-en-kn' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-en-kn' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='en', dest='kn')
         msg.body(result.text)
         responded = True
 
-    if '/TR-kn-en' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-kn-en' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='kn', dest='en')
         msg.body(result.text)
         responded = True
 
-    if '/TR-en-bn' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-en-bn' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='en', dest='bn')
         msg.body(result.text)
         responded = True
 
-    if '/TR-bn-en' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-bn-en' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='bn', dest='en')
         msg.body(result.text)
         responded = True
 
-    if '/TR-en-ta' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-en-ta' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='en', dest='ta')
         msg.body(result.text)
         responded = True
 
-    if '/TR-ta-en' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-ta-en' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='ta', dest='en')
         msg.body(result.text)
         responded = True
 
-    if '/TR-en-te' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-en-te' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='en', dest='te')
         msg.body(result.text)
         responded = True
 
-    if '/TR-te-en' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-te-en' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='te', dest='en')
         msg.body(result.text)
         responded = True
 
-    if '/TR-en-ml' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-en-ml' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='en', dest='ml')
         msg.body(result.text)
         responded = True
 
-    if '/TR-ml-en' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-ml-en' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='ml', dest='en')
         msg.body(result.text)
         responded = True
 
-    if '/TR-en-pa' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-en-pa' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='en', dest='pa')
         msg.body(result.text)
         responded = True
 
-    if '/TR-pa-en' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-pa-en' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='pa', dest='en')
         msg.body(result.text)
         responded = True
 
-    if '/TR-en-ur' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-en-ur' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='en', dest='ur')
         msg.body(result.text)
         responded = True
 
-    if '/TR-ur-en' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-ur-en' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='ur', dest='en')
         msg.body(result.text)
         responded = True
 
-    if '/TR-ur-gu' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-ur-gu' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='ur', dest='gu')
         msg.body(result.text)
         responded = True
 
-    if '/TR-gu-ur' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-gu-ur' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='gu', dest='ur')
         msg.body(result.text)
         responded = True
 
-    if '/TR-ur-hi' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-ur-hi' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='ur', dest='hi')
         msg.body(result.text)
         responded = True
 
-    if '/TR-hi-ur' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-hi-ur' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='hi', dest='ur')
         msg.body(result.text)
         responded = True
 
-    if '/TR-ur-mr' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-ur-mr' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='ur', dest='mr')
         msg.body(result.text)
         responded = True
 
-    if '/TR-mr-ur' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-mr-ur' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='mr', dest='ur')
         msg.body(result.text)
         responded = True
 
-    if '/TR-ur-kn' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-ur-kn' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='ur', dest='kn')
         msg.body(result.text)
         responded = True
 
-    if '/TR-kn-ur' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-kn-ur' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='kn', dest='ur')
         msg.body(result.text)
         responded = True
 
-    if '/TR-ur-bn' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-ur-bn' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='ur', dest='bn')
         msg.body(result.text)
         responded = True
 
-    if '/TR-bn-ur' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-bn-ur' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='bn', dest='ur')
         msg.body(result.text)
         responded = True
 
-    if '/TR-ur-ta' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-ur-ta' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='ur', dest='ta')
         msg.body(result.text)
         responded = True
 
-    if '/TR-ta-ur' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-ta-ur' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='ta', dest='ur')
         msg.body(result.text)
         responded = True
 
-    if '/TR-ur-te' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-ur-te' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='ur', dest='te')
         msg.body(result.text)
         responded = True
 
-    if '/TR-te-ur' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-te-ur' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='te', dest='ur')
         msg.body(result.text)
         responded = True
 
-    if '/TR-ur-ml' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-ur-ml' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='ur', dest='ml')
         msg.body(result.text)
         responded = True
 
-    if '/TR-ml-ur' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-ml-ur' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='ml', dest='ur')
         msg.body(result.text)
         responded = True
 
-    if '/TR-ur-pa' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-ur-pa' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='ur', dest='pa')
         msg.body(result.text)
         responded = True
 
-    if '/TR-pa-ur' in incoming_msg:
-        par = incoming_msg[9:]
+    if 'TR-pa-ur' in incoming_msg:
+        par = incoming_msg[8:]
         translator = Translator()
         result = translator.translate(par, src='pa', dest='ur')
         msg.body(result.text)
@@ -427,9 +427,8 @@ def bot():
         html = r.get(par)
         video_url = re.search('sd_src:"(.+?)"', html.text).group(1)
         reqq = r.get('http://tinyurl.com/api-create.php?url='+video_url)
-        msg.body('*Video Converted Successfully Here is link...*\n\nLINK : '+reqq.text)
+        msg.body('*Video Converted Successfully here is your link...*\n\nLINK : '+reqq.text)
         responded = True
-
 
         
    # if '/TTS' in incoming_msg:
@@ -454,7 +453,7 @@ def bot():
        responded = True
 
     if 'help' in incoming_msg or 'Help' in incoming_msg:
-       text = f'💻 *Help For Facebook*\n\n/FB _link video_ Ecample :\n\n/FB https://fb.watch/2uY9On1xkw/ \n\n💻 *Help For Google Search* \n\n /GL <Query> Example :  \n\n/GL CHARUSAT \n\n/TTS WhatsappBotKrabby\n\nIf you want to use space, replace it with% 20\n\nExample : /TTS Whatsapp%20Bot%Krabby'
+       text = f'💻 *Help For Facebook*\n\nFB _link video_ Ecample :\n\nFB https://fb.watch/2uY9On1xkw/ \n\n💻 *Help For Google Search* \n\n GL <Query> Example :  \n\nGL GUJARAT \n\n💻 *Help for YouTube video Download*\n\n YT <video link> Example :  \n\nYT https://youtu.be/Ci0WbaUH3no\n\n💻 *Help for translator*\n\n TR-en-gu <sentence> Example :  \n\nTR-en-gu How are you? \n\nfor translator we have only indian languages included so far the list is below:\n\n-------------------------------------------------------------------- \n\nTR-gu-en <Translate Gujarati to English>\nTR-en-mr <Translate English to Marathi>\nTR-mr-en <Translate Marathi to English>\nTR-en-hi <Translate English to Hindi>\nTR-hi-en <Translate Hindi to English>\nTR-en-kn <Translate English to Kannad>\nTR-kn-en <Translate Kannad to English>\nTR-en-bn <Translate English to Bengali>\nTR-bn-en <Translate Bengali to English>\nTR-en-ta <Translate English to Tamil>\nTR-ta-en <Translate Tamil to English>\nTR-en-te <Translate English to Telugu>\nTR-te-en <Translate Telugu to English>\nTR-te-en <Translate Telugu to English>\nTR-en-ml <Translate English to Malayalam>\nTR-ml-en <Translate Malayalam to English>\nTR-en-pa <Translate English to Punjabi>\nTR-pa-en <Translate Punjabi to English>\nTR-pa-en <Translate Punjabi to English>\nTR-ur-en <Translate Urdu to English>'
        msg.body(text)
        responded = True
     
