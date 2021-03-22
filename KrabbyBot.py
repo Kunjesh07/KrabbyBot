@@ -31,7 +31,7 @@ from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 import googletrans
 from googletrans import Translator
-import simplejson as json
+#import simplejson as json
 #from Crypto import return_cryptoPrices
 #from newsapi import NewsApiClient
 #import PyCurrency_Converter 
