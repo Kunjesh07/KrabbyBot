@@ -28,26 +28,26 @@ YT <Your Url>
 GL < query >
 Quote <Shows Quote>
 Weather <Shows Weather>
-/TR-en-gu <Translate English to Gujarati>
-/TR-gu-en <Translate Gujarati to English>
-/TR-en-mr <Translate English to Marathi>
-/TR-mr-en <Translate Marathi to English>
-/TR-en-hi <Translate English to Hindi>
-/TR-hi-en <Translate Hindi to English>
-/TR-en-kn <Translate English to Kannad>
-/TR-kn-en <Translate Kannad to English>
-/TR-en-bn <Translate English to Bengali>
-/TR-bn-en <Translate Bengali to English>
-/TR-en-ta <Translate English to Tamil>
-/TR-ta-en <Translate Tamil to English>
-/TR-en-te <Translate English to Telugu>
-/TR-te-en <Translate Telugu to English>
-/TR-en-ml <Translate English to Malayalam>
-/TR-ml-en <Translate Malayalam to English>
-/TR-en-pa <Translate English to Punjabi>
-/TR-pa-en <Translate Punjabi to English>
-/TR-en-ur <Translate English to Urdu>
-/TR-ur-en <Translate Urdu to English> 
+TR-en-gu <Translate English to Gujarati>
+TR-gu-en <Translate Gujarati to English>
+TR-en-mr <Translate English to Marathi>
+TR-mr-en <Translate Marathi to English>
+TR-en-hi <Translate English to Hindi>
+TR-hi-en <Translate Hindi to English>
+TR-en-kn <Translate English to Kannad>
+TR-kn-en <Translate Kannad to English>
+TR-en-bn <Translate English to Bengali>
+TR-bn-en <Translate Bengali to English>
+TR-en-ta <Translate English to Tamil>
+TR-ta-en <Translate Tamil to English>
+TR-en-te <Translate English to Telugu>
+TR-te-en <Translate Telugu to English>
+TR-en-ml <Translate English to Malayalam>
+TR-ml-en <Translate Malayalam to English>
+TR-en-pa <Translate English to Punjabi>
+TR-pa-en <Translate Punjabi to English>
+TR-en-ur <Translate English to Urdu>
+TR-ur-en <Translate Urdu to English> 
 ```
 ```
 ## 🖥️ Installation
