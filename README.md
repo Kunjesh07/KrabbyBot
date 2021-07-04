@@ -1,7 +1,7 @@
 # 🤖 Whatsapp-Bot 
 (Using Twilio Api)
 
-* For use my bot facility click on this link and enjoy (wa.link/zyjikw) *
+* For use my bot facility click on this link and enjoy (https://api.whatsapp.com/send?phone=14155238886&text=Join%20highway-willing) *
 
 ## ✨ Features
 - Facebook Video Downloader 
