@@ -447,10 +447,6 @@ def bot():
         popo = r.get('http://tinyurl.com/api-create.php?url='+genn.url)
         msg.body('_=========================_\n\n     _Video Converted Successfully_\n\n_=========================_\n\n''*'+gen.title+'*''\n\n*Link Download Music* :' +req.text+'\n\n*Link Download Video* :' +popo.text)
         responded = True
-        
-    if 'Schedule' in incoming_msg or 'schedule' in incoming_msg:
-       msg.media('https://user-images.githubusercontent.com/74760068/111062692-72dbbf00-84d0-11eb-9f46-2b88854c78a0.png')
-       responded = True
 
     if 'help' in incoming_msg or 'Help' in incoming_msg:
        text = f'💻 *Help For Facebook*\n\nFB _link video_ Ecample :\n\nFB https://fb.watch/2uY9On1xkw/ \n\n💻 *Help For Google Search* \n\n GL <Query> Example :  \n\nGL GUJARAT \n\n💻 *Help for YouTube video Download*\n\n YT <video link> Example :  \n\nYT https://youtu.be/Ci0WbaUH3no\n\n💻 *Help for translator*\n\n TR-en-gu <sentence> Example :  \n\nTR-en-gu How are you? \n\nfor translator we have only indian languages included so far the list is below:\n\n-------------------------------------------------------------------- \n\nTR-gu-en <Translate Gujarati to English>\nTR-en-mr <Translate English to Marathi>\nTR-mr-en <Translate Marathi to English>\nTR-en-hi <Translate English to Hindi>\nTR-hi-en <Translate Hindi to English>\nTR-en-kn <Translate English to Kannad>\nTR-kn-en <Translate Kannad to English>\nTR-en-bn <Translate English to Bengali>\nTR-bn-en <Translate Bengali to English>\nTR-en-ta <Translate English to Tamil>\nTR-ta-en <Translate Tamil to English>\nTR-en-te <Translate English to Telugu>\nTR-te-en <Translate Telugu to English>\nTR-te-en <Translate Telugu to English>\nTR-en-ml <Translate English to Malayalam>\nTR-ml-en <Translate Malayalam to English>\nTR-en-pa <Translate English to Punjabi>\nTR-pa-en <Translate Punjabi to English>\nTR-pa-en <Translate Punjabi to English>\nTR-ur-en <Translate Urdu to English>'
